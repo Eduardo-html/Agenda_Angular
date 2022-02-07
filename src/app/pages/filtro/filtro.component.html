@@ -1,0 +1,70 @@
+<div [formGroup]="formFiltros" class="container-fluid">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="offset-9 col-md-9">
+        <label for="nome">NOME :</label>
+        <input type="text" class="form-control" id="nome" formControlName="nome">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="offset-9 col-md-3">
+        <label for="idade">IDADE :</label>
+        <input type="number" class="form-control" id="idade" formControlName="idade">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="offset-9 col-md-6">
+        <label for="sexo">SEXO :</label>
+        <select name="sexo" class="form-control" id="sexo" formControlName="sexo">
+          <option value="{{genero}}" [disabled]="booleana" *ngFor="let genero of arrayGenero">{{genero}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="offset-9 col-md-6">
+        <label for="idade">TELEFONE :</label>
+        <input class="form-control" mask="(00) 0000-0000" prefix="+55" [showMaskTyped]="true" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-9 col-md-1 mt-3">
+      <button type="button" class="btn btn-danger" (click)="limparArray()">Limpar</button>
+    </div>
+    <div class="col-md-1 mt-3">
+      <button type="button" [disabled]="!formFiltros.valid" class="btn btn-primary" (click)="popularArray()">
+        Inserir
+      </button>
+    </div>
+    <div class="col-md-1 mt-3">
+      <button type="button" id="filtro" class="btn btn-success" (click)="filtrar()">Filtrar</button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    <input id="populandoArray" type="text" placeholder="Criar..." [(ngModel)]="populandoArray">
+  </div>
+</div>
+<div class="row mt-2">
+  <div class="col-md-1">
+    <button type="button" class="btn btn-primary" (click)="populandoArrayTest()">
+      Exibir
+    </button>
+  </div>
+  <div class="col-md-1">
+    <button type="button" class="btn btn-danger" (click)="limpandoArrayTest()">
+      Limpar
+    </button>
+  </div>
+  <div class="container-fluid" *ngFor="let obj of listaArray">
+    <p>{{obj.populandoArray}}</p>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid" class="container">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Nome:</th>
+        <th>Idade:</th>
+        <th>Sexo:</th>
+        <th>Telefone:</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of lista">
+        <td>{{ obj.nome }}</td>
+        <td>{{ obj.idade }}</td>
+        <td>{{ obj.sexo }}</td>
+        <td>{{ obj.telefone }}</td>
+        <td class="wd-100">
+          <button type="button" class="btn btn-secondary" (click)="editar(obj)">
+            Editar
+          </button>
+        </td>
+        <td class="wd-100">
+          <button type="button" class="btn btn-danger" (click)="excluir(obj.id)">
+            Ecluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
